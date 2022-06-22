@@ -35,6 +35,7 @@ var arrayNumberText = [nineText, tenText, elevenText, twelveText, oneText, twoTe
 init();
 hourTime();
 
+//when save btn clicked it saves time block text to local storage
 nineBtn.on('click', function() {
     localStorage.setItem('nineText', nineText.val());
 })
@@ -71,7 +72,7 @@ fiveBtn.on('click', function() {
     localStorage.setItem('fiveText', fiveText.val());
 })
 
-
+//if there is a local storage for time block text then load when page is open/refreshed
 function init() {
     var storedNineText = localStorage.getItem('nineText');
     var storedTenText = localStorage.getItem('tenText');
@@ -115,6 +116,7 @@ function init() {
         
 }
 
+//for time of day the time block will be colored: grey --> past, red --> present, green -->future
 function hourTime() {
     for (let i = 0; i < arrayHourText.length; i++) {
         if (Number(hour) > arrayHourText[i]) {
